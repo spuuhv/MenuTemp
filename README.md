@@ -20,9 +20,45 @@ MenuTemp is specifically designed for Hackintosh users who find that popular mon
 
 ---
 
-## Installation
+## Download and Installation
 
-1. Clone the repository:  
-```bash
-git clone https://github.com/your-username/MenuTemp.git
-cd MenuTemp
+Precompiled binaries are provided for easy installation — no need to compile from source.
+
+You can download the latest release from the [Releases](https://github.com/your-username/MenuTemp/releases) page.
+
+To install:
+
+1. Download the `.dmg` or `.zip` file for the latest version.  
+2. Open the downloaded file and drag the app to your `Applications` folder.  
+3. Run the app from `Applications`.  
+4. (Optional) Enable “Launch at Login” from the menu to start automatically with your Mac.
+
+---
+
+## Usage
+
+- The menu bar icon shows the current package temperature.  
+- Click the icon to see detailed CPU temperature information.  
+- Use the "Launch at Login" menu option to enable or disable automatic startup.  
+- Select "Quit" to exit the application.
+
+---
+
+## Development
+
+- The helper program (written in C) reads temperature data and sends it through a named pipe (FIFO).  
+- The main app uses Swift and Combine to observe and update the UI.  
+- The launch at login feature is implemented with the ServiceManagement framework.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+- Thanks to Intel Power Gadget for providing the CPU temperature API.  
+- Thanks to the open source community.
