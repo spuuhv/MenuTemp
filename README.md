@@ -1,64 +1,41 @@
 # MenuTemp
 
-MenuTemp is a lightweight macOS menu bar application that monitors CPU temperature in real-time. It displays detailed temperature metrics and supports enabling/disabling launch at login.
+MenuTemp 是一款轻量级 macOS 菜单栏应用，实时显示 CPU 温度。专为黑苹果用户设计，解决 Stats、iStat Menus 等监控软件无法正确显示 CPU 温度的问题。
 
 ---
 
-## Features
+## 功能
 
-- Shows package temperature, average core temperature, minimum and maximum temperatures  
-- Real-time updates in the macOS menu bar  
-- Toggle launch at login feature directly from the menu  
-- Uses Intel Power Gadget for accurate temperature readings  
-- Employs a helper C program that reads CPU temperatures and communicates via FIFO  
-
----
-
-## Introduction
-
-MenuTemp is specifically designed for Hackintosh users who find that popular monitoring tools like **Stats**, **iStat Menus**, and others do not display CPU temperatures properly. By leveraging Intel Power Gadget combined with a custom helper program, MenuTemp provides reliable and real-time CPU temperature readings on systems where traditional tools fail.
+- 显示封装温度、核心平均温度、最低和最高温度  
+- 实时更新菜单栏显示  
+- 菜单中开关开机启动  
+- 使用 Intel Power Gadget 精准获取温度
 
 ---
 
-## Download and Installation
+## 下载与安装
 
-Precompiled binaries are provided for easy installation — no need to compile from source.
-
-You can download the latest release from the [Releases](https://github.com/your-username/MenuTemp/releases) page.
-
-To install:
-
-1. Download the `.dmg` or `.zip` file for the latest version.  
-2. Open the downloaded file and drag the app to your `Applications` folder.  
-3. Run the app from `Applications`.  
-4. (Optional) Enable “Launch at Login” from the menu to start automatically with your Mac.
+从 [Releases](https://github.com/your-username/MenuTemp/releases) 下载最新 `.dmg` 或 `.zip`。  
+将应用拖入“应用程序”文件夹并运行。  
+可在菜单中开启“开机启动”。
 
 ---
 
-## Usage
+## 使用
 
-- The menu bar icon shows the current package temperature.  
-- Click the icon to see detailed CPU temperature information.  
-- Use the "Launch at Login" menu option to enable or disable automatic startup.  
-- Select "Quit" to exit the application.
-
----
-
-## Development
-
-- The helper program (written in C) reads temperature data and sends it through a named pipe (FIFO).  
-- The main app uses Swift and Combine to observe and update the UI.  
-- The launch at login feature is implemented with the ServiceManagement framework.
+- 菜单栏图标显示当前封装温度  
+- 点击查看详细温度  
+- 开关开机启动  
+- 通过菜单退出应用
 
 ---
 
-## License
+## 许可证
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT 许可证 — 详见 [LICENSE](LICENSE)
 
 ---
 
-## Acknowledgments
+## 致谢
 
-- Thanks to Intel Power Gadget for providing the CPU temperature API.  
-- Thanks to the open source community.
+感谢 Intel Power Gadget 及开源社区。
