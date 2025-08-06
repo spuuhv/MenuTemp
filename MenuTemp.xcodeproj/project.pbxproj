@@ -23,15 +23,54 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CD99CC222E40E53F002C34DE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		CD246D3C2E3DCD3800E397D7 /* MenuTemp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuTemp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD246D4A2E3DCD3900E397D7 /* MenuTempTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD246D542E3DCD3900E397D7 /* MenuTempUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CD4FBC112E4322E100459093 /* Exceptions for "MenuTemp" folder in "MenuTemp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/monitor_cpu_temp_fifo,
+			);
+			target = CD246D3B2E3DCD3800E397D7 /* MenuTemp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		CD4FBC102E4321BE00459093 /* Exceptions for "MenuTemp" folder in "Copy Files" phase from "MenuTemp" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				Resources/monitor_cpu_temp_fifo = (CodeSignOnCopy, );
+			};
+			buildPhase = CD99CC222E40E53F002C34DE /* CopyFiles */;
+			membershipExceptions = (
+				Resources/monitor_cpu_temp_fifo,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CD246D3E2E3DCD3800E397D7 /* MenuTemp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CD4FBC112E4322E100459093 /* Exceptions for "MenuTemp" folder in "MenuTemp" target */,
+				CD4FBC102E4321BE00459093 /* Exceptions for "MenuTemp" folder in "Copy Files" phase from "MenuTemp" target */,
+			);
 			path = MenuTemp;
 			sourceTree = "<group>";
 		};
@@ -102,6 +141,8 @@
 				CD246D382E3DCD3800E397D7 /* Sources */,
 				CD246D392E3DCD3800E397D7 /* Frameworks */,
 				CD246D3A2E3DCD3800E397D7 /* Resources */,
+				CD99CC222E40E53F002C34DE /* CopyFiles */,
+				CDB1B7712E430626005899E9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,6 +271,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CDB1B7712E430626005899E9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nchmod +x \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/MacOS/monitor_cpu_temp_fifo\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CD246D382E3DCD3800E397D7 /* Sources */ = {
@@ -392,20 +453,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = MenuTemp/MenuTemp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXZ8BFT899;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.btusn.MenuTemp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTemp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -417,20 +483,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MenuTemp/MenuTemp.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = MenuTemp/MenuTempRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXZ8BFT899;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.btusn.MenuTemp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTemp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -463,7 +534,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.btusn.MenuTempTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -493,7 +564,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.btusn.MenuTempUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
