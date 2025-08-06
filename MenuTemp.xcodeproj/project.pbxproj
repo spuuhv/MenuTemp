@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CD99CC222E40E53F002C34DE /* CopyFiles */ = {
+		CD4FBC192E432E4900459093 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
@@ -42,7 +42,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CD4FBC112E4322E100459093 /* Exceptions for "MenuTemp" folder in "MenuTemp" target */ = {
+		CD4FBC1C2E432E5500459093 /* Exceptions for "MenuTemp" folder in "MenuTemp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Resources/monitor_cpu_temp_fifo,
@@ -52,12 +52,12 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		CD4FBC102E4321BE00459093 /* Exceptions for "MenuTemp" folder in "Copy Files" phase from "MenuTemp" target */ = {
+		CD4FBC1B2E432E5200459093 /* Exceptions for "MenuTemp" folder in "Copy Files" phase from "MenuTemp" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			attributesByRelativePath = {
 				Resources/monitor_cpu_temp_fifo = (CodeSignOnCopy, );
 			};
-			buildPhase = CD99CC222E40E53F002C34DE /* CopyFiles */;
+			buildPhase = CD4FBC192E432E4900459093 /* CopyFiles */;
 			membershipExceptions = (
 				Resources/monitor_cpu_temp_fifo,
 			);
@@ -68,8 +68,8 @@
 		CD246D3E2E3DCD3800E397D7 /* MenuTemp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				CD4FBC112E4322E100459093 /* Exceptions for "MenuTemp" folder in "MenuTemp" target */,
-				CD4FBC102E4321BE00459093 /* Exceptions for "MenuTemp" folder in "Copy Files" phase from "MenuTemp" target */,
+				CD4FBC1C2E432E5500459093 /* Exceptions for "MenuTemp" folder in "MenuTemp" target */,
+				CD4FBC1B2E432E5200459093 /* Exceptions for "MenuTemp" folder in "Copy Files" phase from "MenuTemp" target */,
 			);
 			path = MenuTemp;
 			sourceTree = "<group>";
@@ -141,8 +141,7 @@
 				CD246D382E3DCD3800E397D7 /* Sources */,
 				CD246D392E3DCD3800E397D7 /* Frameworks */,
 				CD246D3A2E3DCD3800E397D7 /* Resources */,
-				CD99CC222E40E53F002C34DE /* CopyFiles */,
-				CDB1B7712E430626005899E9 /* ShellScript */,
+				CD4FBC192E432E4900459093 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -271,26 +270,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		CDB1B7712E430626005899E9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nchmod +x \"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/MacOS/monitor_cpu_temp_fifo\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CD246D382E3DCD3800E397D7 /* Sources */ = {

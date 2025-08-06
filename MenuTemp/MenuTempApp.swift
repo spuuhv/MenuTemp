@@ -1,3 +1,9 @@
+//
+//  MenuTempUITestsLaunchTests.swift
+//  MenuTempUITests
+//
+//  Created by isbtsuns@icloud.com on 2025/8/2.
+//
 import SwiftUI
 
 @main

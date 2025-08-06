@@ -7,7 +7,7 @@ final class TemperatureReader: ObservableObject {
     @Published private(set) var minTempInt: Int? = nil
     @Published private(set) var maxTempInt: Int? = nil
 
-    private let fifoPath = NSTemporaryDirectory() + "cpu_temp_pipe"
+    private let fifoPath = "/tmp/cpu_temp_pipe"
     private var fileHandle: FileHandle?
     private var leftoverData = Data()
     private var isReading = false
@@ -15,8 +15,7 @@ final class TemperatureReader: ObservableObject {
     func startReading() {
         guard !isReading else { return }
         isReading = true
-
-        openPipe()
+        openPipeWithRetry()
     }
 
     func stopReading() {
@@ -24,18 +23,25 @@ final class TemperatureReader: ObservableObject {
         fileHandle?.readabilityHandler = nil
         try? fileHandle?.close()
         fileHandle = nil
+        leftoverData.removeAll()
         print("【信息】温度读取已停止")
     }
 
-    private func openPipe() {
+    /// 持续重试打开 FIFO，直到连接成功
+    private func openPipeWithRetry() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
-            do {
-                self.fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: self.fifoPath))
-                print("【信息】管道已打开")
-                self.setupReadHandler()
-            } catch {
-                print("【错误】打开管道失败: \(error)")
+
+            while self.isReading {
+                do {
+                    self.fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: self.fifoPath))
+                    print("【信息】FIFO 已打开: \(self.fifoPath)")
+                    self.setupReadHandler()
+                    return
+                } catch {
+                    print("【警告】等待 FIFO 连接中...")
+                    Thread.sleep(forTimeInterval: 0.5)
+                }
             }
         }
     }
@@ -44,10 +50,20 @@ final class TemperatureReader: ObservableObject {
         fileHandle?.readabilityHandler = { [weak self] handle in
             guard let self = self else { return }
             let newData = handle.availableData
+
             if newData.isEmpty {
+                print("【警告】FIFO 读到空数据，可能写端已关闭")
                 self.stopReading()
                 return
             }
+
+            // 调试输出原始数据
+            if let rawStr = String(data: newData, encoding: .utf8) {
+                print("【调试】收到数据: \(rawStr)")
+            } else {
+                print("【调试】收到数据（无法解码为 UTF-8）: \(newData as NSData)")
+            }
+
             self.processData(newData)
         }
     }
@@ -69,22 +85,19 @@ final class TemperatureReader: ObservableObject {
         let trimmed = line.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
 
-        let parts = trimmed.split(separator: "|")
+        let parts = trimmed.split(separator: "|", maxSplits: 1)
         guard parts.count == 2 else { return }
 
+        let pkg = Int(Double(parts[0]) ?? -1)
+        let temps = parts[1].split(whereSeparator: { $0.isWhitespace }).compactMap { Int(Double($0) ?? -1) }
+
         DispatchQueue.main.async {
-            self.packageTempInt = self.cleanTemp(parts[0])
-            let temps = parts[1].split(separator: " ")
-            if temps.count == 3 {
-                self.avgTempInt = self.cleanTemp(temps[0])
-                self.minTempInt = self.cleanTemp(temps[1])
-                self.maxTempInt = self.cleanTemp(temps[2])
+            self.packageTempInt = pkg
+            if temps.count >= 3 {
+                self.avgTempInt = temps[0]
+                self.minTempInt = temps[1]
+                self.maxTempInt = temps[2]
             }
         }
-    }
-
-    private func cleanTemp<S: StringProtocol>(_ val: S) -> Int? {
-        let cleaned = val.replacingOccurrences(of: "°C", with: "").trimmingCharacters(in: .whitespaces)
-        return Int(Double(cleaned) ?? -1)
     }
 }
