@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD4FBC4A2E43349D00459093 /* MenuTempHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD4FBC212E43314A00459093 /* MenuTempHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CD4FBC812E43408300459093 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CD4FBC802E43406C00459093 /* .gitignore */; };
+		CD4FBC832E4341E700459093 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CD4FBC822E4341D100459093 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		CD4FBC2E2E43314B00459093 /* MenuTempHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4FBC382E43314B00459093 /* MenuTempHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4FBC802E43406C00459093 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CD4FBC822E4341D100459093 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -183,6 +185,7 @@
 		CD246D332E3DCD3800E397D7 = {
 			isa = PBXGroup;
 			children = (
+				CD4FBC822E4341D100459093 /* LICENSE */,
 				CD4FBC802E43406C00459093 /* .gitignore */,
 				CD246D3E2E3DCD3800E397D7 /* MenuTemp */,
 				CD246D4D2E3DCD3900E397D7 /* MenuTempTests */,
@@ -411,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD4FBC832E4341E700459093 /* LICENSE in Resources */,
 				CD4FBC812E43408300459093 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
