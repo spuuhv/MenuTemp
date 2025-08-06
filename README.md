@@ -15,7 +15,6 @@ MenuTemp 是一款轻量级 macOS 菜单栏应用，实时显示 CPU 温度。�
 
 ## 下载与安装
 安装 intel power gadget 3.7 版本
-
 从 [Releases](https://github.com/your-username/MenuTemp/releases) 下载最新 `.dmg` 或 `.zip`。  
 将应用拖入“应用程序”文件夹并运行。  
 可在菜单中开启“开机启动”。
@@ -28,6 +27,7 @@ MenuTemp 是一款轻量级 macOS 菜单栏应用，实时显示 CPU 温度。�
 - 点击查看详细温度  
 - 开关开机启动  
 - 通过菜单退出应用
+<img width="412" height="366" alt="image" src="https://github.com/user-attachments/assets/9467f787-6ef9-4ebd-893d-ccfc9de6d299" />
 
 ---
 
