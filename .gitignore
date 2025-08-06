@@ -1,0 +1,45 @@
+//
+//  .gitignore
+//  MenuTemp
+//
+//  Created by 孙旗 on 2025/8/6.
+//
+
+# Xcode
+build/
+*.xcworkspace
+*.xcuserdata
+*.xcuserstate
+*.xcscmblueprint
+DerivedData/
+
+# macOS
+.DS_Store
+
+# Swift Package Manager
+/.build/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# Archives
+*.xcarchive
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Others
+*.moved-aside
+*.ipa
+*.dSYM.zip
+*.dSYM
