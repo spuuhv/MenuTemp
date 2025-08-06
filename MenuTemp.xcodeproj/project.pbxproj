@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CD4FBC4A2E43349D00459093 /* MenuTempHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD4FBC212E43314A00459093 /* MenuTempHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CD246D4B2E3DCD3900E397D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,6 +25,20 @@
 			remoteGlobalIDString = CD246D3B2E3DCD3800E397D7;
 			remoteInfo = MenuTemp;
 		};
+		CD4FBC2F2E43314B00459093 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD246D342E3DCD3800E397D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD4FBC202E43314A00459093;
+			remoteInfo = MenuTempHelper;
+		};
+		CD4FBC392E43314B00459093 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD246D342E3DCD3800E397D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD4FBC202E43314A00459093;
+			remoteInfo = MenuTempHelper;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,12 +51,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD4FBC492E43346400459093 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				CD4FBC4A2E43349D00459093 /* MenuTempHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CD246D3C2E3DCD3800E397D7 /* MenuTemp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuTemp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD246D4A2E3DCD3900E397D7 /* MenuTempTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD246D542E3DCD3900E397D7 /* MenuTempUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4FBC212E43314A00459093 /* MenuTempHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuTempHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4FBC2E2E43314B00459093 /* MenuTempHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4FBC382E43314B00459093 /* MenuTempHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuTempHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -84,6 +115,21 @@
 			path = MenuTempUITests;
 			sourceTree = "<group>";
 		};
+		CD4FBC222E43314A00459093 /* MenuTempHelper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MenuTempHelper;
+			sourceTree = "<group>";
+		};
+		CD4FBC312E43314B00459093 /* MenuTempHelperTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MenuTempHelperTests;
+			sourceTree = "<group>";
+		};
+		CD4FBC3B2E43314B00459093 /* MenuTempHelperUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MenuTempHelperUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +154,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD4FBC1E2E43314A00459093 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4FBC2B2E43314B00459093 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4FBC352E43314B00459093 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,6 +184,9 @@
 				CD246D3E2E3DCD3800E397D7 /* MenuTemp */,
 				CD246D4D2E3DCD3900E397D7 /* MenuTempTests */,
 				CD246D572E3DCD3900E397D7 /* MenuTempUITests */,
+				CD4FBC222E43314A00459093 /* MenuTempHelper */,
+				CD4FBC312E43314B00459093 /* MenuTempHelperTests */,
+				CD4FBC3B2E43314B00459093 /* MenuTempHelperUITests */,
 				CD246D3D2E3DCD3800E397D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,6 +197,9 @@
 				CD246D3C2E3DCD3800E397D7 /* MenuTemp.app */,
 				CD246D4A2E3DCD3900E397D7 /* MenuTempTests.xctest */,
 				CD246D542E3DCD3900E397D7 /* MenuTempUITests.xctest */,
+				CD4FBC212E43314A00459093 /* MenuTempHelper.app */,
+				CD4FBC2E2E43314B00459093 /* MenuTempHelperTests.xctest */,
+				CD4FBC382E43314B00459093 /* MenuTempHelperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +215,7 @@
 				CD246D392E3DCD3800E397D7 /* Frameworks */,
 				CD246D3A2E3DCD3800E397D7 /* Resources */,
 				CD4FBC192E432E4900459093 /* CopyFiles */,
+				CD4FBC492E43346400459093 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -203,6 +277,74 @@
 			productReference = CD246D542E3DCD3900E397D7 /* MenuTempUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CD4FBC202E43314A00459093 /* MenuTempHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD4FBC402E43314B00459093 /* Build configuration list for PBXNativeTarget "MenuTempHelper" */;
+			buildPhases = (
+				CD4FBC1D2E43314A00459093 /* Sources */,
+				CD4FBC1E2E43314A00459093 /* Frameworks */,
+				CD4FBC1F2E43314A00459093 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CD4FBC222E43314A00459093 /* MenuTempHelper */,
+			);
+			name = MenuTempHelper;
+			packageProductDependencies = (
+			);
+			productName = MenuTempHelper;
+			productReference = CD4FBC212E43314A00459093 /* MenuTempHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD4FBC2D2E43314B00459093 /* MenuTempHelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD4FBC432E43314B00459093 /* Build configuration list for PBXNativeTarget "MenuTempHelperTests" */;
+			buildPhases = (
+				CD4FBC2A2E43314B00459093 /* Sources */,
+				CD4FBC2B2E43314B00459093 /* Frameworks */,
+				CD4FBC2C2E43314B00459093 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD4FBC302E43314B00459093 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CD4FBC312E43314B00459093 /* MenuTempHelperTests */,
+			);
+			name = MenuTempHelperTests;
+			packageProductDependencies = (
+			);
+			productName = MenuTempHelperTests;
+			productReference = CD4FBC2E2E43314B00459093 /* MenuTempHelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD4FBC372E43314B00459093 /* MenuTempHelperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD4FBC462E43314B00459093 /* Build configuration list for PBXNativeTarget "MenuTempHelperUITests" */;
+			buildPhases = (
+				CD4FBC342E43314B00459093 /* Sources */,
+				CD4FBC352E43314B00459093 /* Frameworks */,
+				CD4FBC362E43314B00459093 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD4FBC3A2E43314B00459093 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CD4FBC3B2E43314B00459093 /* MenuTempHelperUITests */,
+			);
+			name = MenuTempHelperUITests;
+			packageProductDependencies = (
+			);
+			productName = MenuTempHelperUITests;
+			productReference = CD4FBC382E43314B00459093 /* MenuTempHelperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,6 +366,17 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = CD246D3B2E3DCD3800E397D7;
 					};
+					CD4FBC202E43314A00459093 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					CD4FBC2D2E43314B00459093 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = CD4FBC202E43314A00459093;
+					};
+					CD4FBC372E43314B00459093 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = CD4FBC202E43314A00459093;
+					};
 				};
 			};
 			buildConfigurationList = CD246D372E3DCD3800E397D7 /* Build configuration list for PBXProject "MenuTemp" */;
@@ -243,6 +396,9 @@
 				CD246D3B2E3DCD3800E397D7 /* MenuTemp */,
 				CD246D492E3DCD3900E397D7 /* MenuTempTests */,
 				CD246D532E3DCD3900E397D7 /* MenuTempUITests */,
+				CD4FBC202E43314A00459093 /* MenuTempHelper */,
+				CD4FBC2D2E43314B00459093 /* MenuTempHelperTests */,
+				CD4FBC372E43314B00459093 /* MenuTempHelperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -263,6 +419,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CD246D522E3DCD3900E397D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4FBC1F2E43314A00459093 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4FBC2C2E43314B00459093 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4FBC362E43314B00459093 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,6 +470,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD4FBC1D2E43314A00459093 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4FBC2A2E43314B00459093 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4FBC342E43314B00459093 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -305,6 +503,16 @@
 			isa = PBXTargetDependency;
 			target = CD246D3B2E3DCD3800E397D7 /* MenuTemp */;
 			targetProxy = CD246D552E3DCD3900E397D7 /* PBXContainerItemProxy */;
+		};
+		CD4FBC302E43314B00459093 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD4FBC202E43314A00459093 /* MenuTempHelper */;
+			targetProxy = CD4FBC2F2E43314B00459093 /* PBXContainerItemProxy */;
+		};
+		CD4FBC3A2E43314B00459093 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD4FBC202E43314A00459093 /* MenuTempHelper */;
+			targetProxy = CD4FBC392E43314B00459093 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -551,6 +759,126 @@
 			};
 			name = Release;
 		};
+		CD4FBC412E43314B00459093 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MenuTempHelper/MenuTempHelper.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXZ8BFT899;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CD4FBC422E43314B00459093 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MenuTempHelper/MenuTempHelper.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXZ8BFT899;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CD4FBC442E43314B00459093 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuTempHelper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MenuTempHelper";
+			};
+			name = Debug;
+		};
+		CD4FBC452E43314B00459093 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempHelperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuTempHelper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MenuTempHelper";
+			};
+			name = Release;
+		};
+		CD4FBC472E43314B00459093 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MenuTempHelper;
+			};
+			name = Debug;
+		};
+		CD4FBC482E43314B00459093 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btsun.MenuTempHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MenuTempHelper;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -586,6 +914,33 @@
 			buildConfigurations = (
 				CD246D652E3DCD3900E397D7 /* Debug */,
 				CD246D662E3DCD3900E397D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD4FBC402E43314B00459093 /* Build configuration list for PBXNativeTarget "MenuTempHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD4FBC412E43314B00459093 /* Debug */,
+				CD4FBC422E43314B00459093 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD4FBC432E43314B00459093 /* Build configuration list for PBXNativeTarget "MenuTempHelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD4FBC442E43314B00459093 /* Debug */,
+				CD4FBC452E43314B00459093 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD4FBC462E43314B00459093 /* Build configuration list for PBXNativeTarget "MenuTempHelperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD4FBC472E43314B00459093 /* Debug */,
+				CD4FBC482E43314B00459093 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
