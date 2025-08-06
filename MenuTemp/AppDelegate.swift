@@ -17,40 +17,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.title = "--°C"
 
+        // 初始化菜单
         let menu = NSMenu()
 
-        // 温度显示占位（索引0~3）
+        // 固定四个温度项（初始空值）
         menu.addItem(menuItem(for: "封装温度", value: nil))
         menu.addItem(menuItem(for: "核心平均温度", value: nil))
         menu.addItem(menuItem(for: "最低温度", value: nil))
         menu.addItem(menuItem(for: "最高温度", value: nil))
-
-        // 分隔符（索引4）
         menu.addItem(.separator())
 
-        // 开机启动菜单项（倒数第二，索引5）
+        // 开机启动
         launchAtLoginMenuItem = NSMenuItem(
             title: "开机启动",
             action: #selector(toggleLaunchAtLogin(_:)),
-            keyEquivalent: "")
+            keyEquivalent: ""
+        )
         launchAtLoginMenuItem.target = self
         launchAtLoginMenuItem.state = isLaunchAtLoginEnabled() ? .on : .off
         menu.addItem(launchAtLoginMenuItem)
 
-        // 退出菜单项（最后一项，索引6）
-        let quitItem = NSMenuItem(title: "退出", action: #selector(quit(_:)), keyEquivalent: "q")
+        // 退出
+        let quitItem = NSMenuItem(title: "退出", action: #selector(quit), keyEquivalent: "q")
         quitItem.target = self
         menu.addItem(quitItem)
 
         statusItem.menu = menu
 
+        // 订阅温度变化
         cancellable = tempReader.$packageTempInt.sink { [weak self] _ in
             DispatchQueue.main.async {
-                self?.refreshTemperatureMenuItems()
+                self?.refreshMenu()
             }
         }
     }
 
+    // 启动 helper
     private func startHelper() {
         guard let helperURL = Bundle.main.url(forAuxiliaryExecutable: "monitor_cpu_temp_fifo") else {
             print("【错误】找不到资源中的 C 程序文件")
@@ -80,21 +82,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    private func refreshTemperatureMenuItems() {
+    // 刷新温度项（固定顺序）
+    private func refreshMenu() {
         guard let menu = statusItem.menu else { return }
 
-        func updateItem(at index: Int, label: String, value: Int?) {
-            let text = value != nil ? "\(label): \(value!)°C" : "\(label): --"
-            if index < menu.items.count {
-                menu.items[index].title = text
-            }
-        }
+        // 更新四个温度项
+        menu.item(at: 0)?.title = formattedMenuTitle("封装温度", value: tempReader.packageTempInt)
+        menu.item(at: 1)?.title = formattedMenuTitle("核心平均温度", value: tempReader.avgTempInt)
+        menu.item(at: 2)?.title = formattedMenuTitle("最低温度", value: tempReader.minTempInt)
+        menu.item(at: 3)?.title = formattedMenuTitle("最高温度", value: tempReader.maxTempInt)
 
-        updateItem(at: 0, label: "封装温度", value: tempReader.packageTempInt)
-        updateItem(at: 1, label: "核心平均温度", value: tempReader.avgTempInt)
-        updateItem(at: 2, label: "最低温度", value: tempReader.minTempInt)
-        updateItem(at: 3, label: "最高温度", value: tempReader.maxTempInt)
-
+        // 更新状态栏显示
         if let package = tempReader.packageTempInt {
             statusItem.button?.title = "\(package)°C"
         } else {
@@ -102,31 +100,61 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    private func formattedMenuTitle(_ label: String, value: Int?) -> String {
+        if let v = value {
+            return "\(label): \(v)°C"
+        } else {
+            return "\(label): --"
+        }
+    }
+
     private func menuItem(for label: String, value: Int?) -> NSMenuItem {
-        let text = value != nil ? "\(label): \(value!)°C" : "\(label): --"
-        let item = NSMenuItem(title: text, action: nil, keyEquivalent: "")
+        let item = NSMenuItem(title: formattedMenuTitle(label, value: value), action: nil, keyEquivalent: "")
         item.isEnabled = false
         return item
     }
 
+    // 判断开机启动是否启用
     func isLaunchAtLoginEnabled() -> Bool {
-        let helperBundleID = "com.btsun.MenuTempHelper"
-        let jobs = (SMCopyAllJobDictionaries(kSMDomainUserLaunchd)?.takeRetainedValue() as? [[String: Any]]) ?? []
-        return jobs.contains { $0["Label"] as? String == helperBundleID }
-    }
+        let helperBundleID = "com.btsun.MenuTempHelper" // 修改成你 Helper 的 Bundle ID
 
-    @objc func toggleLaunchAtLogin(_ sender: NSMenuItem) {
-        let helperBundleID = "com.btsun.MenuTempHelper" 
-        let enabled = sender.state == .off
-        if SMLoginItemSetEnabled(helperBundleID as CFString, enabled) {
-            sender.state = enabled ? .on : .off
-            print("开机启动设置为：\(enabled)")
+        if #available(macOS 13.0, *) {
+            return SMAppService.mainApp.status == .enabled
         } else {
-            print("开机启动设置失败")
+            let jobs = (SMCopyAllJobDictionaries(kSMDomainUserLaunchd)?.takeRetainedValue() as? [[String: Any]]) ?? []
+            return jobs.contains { $0["Label"] as? String == helperBundleID }
         }
     }
 
-    @objc private func quit(_ sender: NSMenuItem) {
+    // 切换开机启动
+    @objc func toggleLaunchAtLogin(_ sender: NSMenuItem) {
+        let helperBundleID = "com.btsun.MenuTempHelper"
+        let enable = sender.state == .off
+
+        if #available(macOS 13.0, *) {
+            do {
+                if enable {
+                    try SMAppService.mainApp.register()
+                } else {
+                    try SMAppService.mainApp.unregister()
+                }
+                sender.state = enable ? .on : .off
+                print("开机启动设置为：\(enable)")
+            } catch {
+                print("开机启动设置失败: \(error)")
+            }
+        } else {
+            if SMLoginItemSetEnabled(helperBundleID as CFString, enable) {
+                sender.state = enable ? .on : .off
+                print("开机启动设置为：\(enable)")
+            } else {
+                print("开机启动设置失败")
+            }
+        }
+    }
+
+    // 退出
+    @objc private func quit() {
         tempReader.stopReading()
 
         if let process = helperProcess {
